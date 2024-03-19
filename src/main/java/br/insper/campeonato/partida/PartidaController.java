@@ -19,12 +19,12 @@ public class PartidaController {
     }
 
     @GetMapping("/partida")
-    public ArrayList<Partida> getPartidas(@RequestParam(required = false) Time timeMandante) {
+    public ArrayList<Partida> getPartidas(@RequestParam(required = false) String timeMandante) {
         return partidaService.listaPartidas(timeMandante);
     }
 
     @GetMapping("/partida/{time}")
-    public Integer getVitorias(@PathVariable Time time) {
+    public Integer getVitorias(@PathVariable String time) {
         return partidaService.calculaVitorias(time);
     }
 }

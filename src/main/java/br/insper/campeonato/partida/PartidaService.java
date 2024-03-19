@@ -30,12 +30,12 @@ public class PartidaService {
         return partida;
     }
 
-    public ArrayList<Partida> listaPartidas(Time timeMandante) {
+    public ArrayList<Partida> listaPartidas(String timeMandante) {
 
         if (timeMandante != null) {
             ArrayList<Partida> lista = new ArrayList<>();
             for (Partida partida : partidas) {
-                if (partida.getTimeMandante().equals(timeMandante)) {
+                if (partida.getTimeMandante().getNome().equals(timeMandante)) {
                     lista.add(partida);
                     break;
                 }
@@ -45,14 +45,14 @@ public class PartidaService {
         return partidas;
     }
 
-    public Integer calculaVitorias(Time time) {
+    public Integer calculaVitorias(String time) {
         Integer vitorias = 0;
         for (Partida partida : partidas) {
-            if (partida.getTimeMandante().equals(time)) {
+            if (partida.getTimeMandante().getNome().equals(time)) {
                 if (partida.getPlacarMandante() > partida.getPlacarVisitante()) {
                     vitorias++;
                 }
-            } else if (partida.getTimeVisitante().equals(time)) {
+            } else if (partida.getTimeVisitante().getNome().equals(time)) {
                 if (partida.getPlacarVisitante() > partida.getPlacarMandante()) {
                     vitorias++;
                 }
